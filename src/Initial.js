@@ -3,20 +3,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { renderToStaticMarkup } from 'react-dom/server'
 
-type Props = {
-  name?: string,
-  color?: ?string,
-  seed?: number,
-  charCount?: number,
-  textColor?: string,
-  height?: number,
-  width?: number,
-  fontSize?: number,
-  fontWeight?: number,
-  fontFamily?: string,
-  radius?: number
-}
-
 const colors: string[] = [
   '#1abc9c',
   '#16a085',
@@ -46,6 +32,20 @@ const colors: string[] = [
   '#a94136'
 ]
 
+type Props = {
+  name?: string,
+  color?: ?string,
+  seed?: number,
+  charCount?: number,
+  textColor?: string,
+  height?: number,
+  width?: number,
+  fontSize?: number,
+  fontWeight?: number,
+  fontFamily?: string,
+  radius?: number
+}
+
 export default class Initial extends Component<Props> {
   static propTypes = {
     name: PropTypes.string,
@@ -61,7 +61,6 @@ export default class Initial extends Component<Props> {
     radius: PropTypes.number
   }
 
-  // default settings
   static defaultProps = {
     name: 'Name',
     color: null,
@@ -91,11 +90,11 @@ export default class Initial extends Component<Props> {
   }
 
   unicodeSlice (string: string, start: number, end: number): string {
-    var accumulator = ''
-    var character
-    var stringIndex = 0
-    var unicodeIndex = 0
-    var length = string.length
+    let accumulator = ''
+    let character
+    let stringIndex = 0
+    let unicodeIndex = 0
+    let length = string.length
 
     while (stringIndex < length) {
       character = this.unicodeCharAt(string, stringIndex)
