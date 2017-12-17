@@ -4,7 +4,8 @@
   "description": "react component to make Gmail like text avatars for profile pictures",
   "keywords": [
     "react",
-    "initial"
+    "initial",
+    "avatar"
   ],
   "author": "Bruno Carvalho de Araujo <brunocarvalhodearaujo@gmail.com>",
   "license": "MIT",
@@ -22,7 +23,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1"
   },
-  "dependencies": {
+  "peerDependencies": {
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
