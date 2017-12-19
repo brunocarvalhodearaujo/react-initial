@@ -81,6 +81,7 @@ export default class Initial extends Component<Props> {
 
     if (first >= 0xD800 && first <= 0xDBFF && string.length > index + 1) {
       second = string.charCodeAt(index + 1)
+      
       if (second >= 0xDC00 && second <= 0xDFFF) {
         return string.substring(index, index + 2)
       }
