@@ -81,7 +81,7 @@ export default class Initial extends Component<Props> {
 
     if (first >= 0xD800 && first <= 0xDBFF && string.length > index + 1) {
       second = string.charCodeAt(index + 1)
-      
+
       if (second >= 0xDC00 && second <= 0xDFFF) {
         return string.substring(index, index + 2)
       }
@@ -112,7 +112,7 @@ export default class Initial extends Component<Props> {
   }
 
   render () {
-    const { width, height, textColor, fontFamily, fontSize, fontWeight, radius } = this.props
+    const { width, height, textColor, fontFamily, fontSize, fontWeight, radius: borderRadius } = this.props
     const initial = this.unicodeSlice(this.props.name || 'Name', 0, this.props.charCount || 1).toUpperCase()
     const backgroundColor = this.props.color !== null
       ? this.props.color
@@ -122,8 +122,16 @@ export default class Initial extends Component<Props> {
       <svg
         xmlns='http://www.w3.org/2000/svg'
         pointerEvents='none'
-        {...{ width, height }}
-        style={{ width, height, backgroundColor, borderRadius: radius }}>
+        {...{
+          width,
+          height,
+          style: {
+            width,
+            height,
+            backgroundColor,
+            borderRadius
+          }
+        }}>
         <text
           y='50%'
           x='50%'
@@ -137,12 +145,18 @@ export default class Initial extends Component<Props> {
       </svg>
     )
 
-    const svgHtml = btoa(unescape(encodeURIComponent(renderToStaticMarkup(<InitialSvg />))))
+    const svgHtml: string = 'data:image/svg+xml;base64,' + btoa(
+      unescape(
+        encodeURIComponent(
+          renderToStaticMarkup(
+            <InitialSvg />
+          )
+        )
+      )
+    )
 
     return (
-      <img
-        src={`data:image/svg+xml;base64,${svgHtml}`}
-        alt='' />
+      <img src={svgHtml} alt='' />
     )
   }
 }

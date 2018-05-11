@@ -1,4 +1,4 @@
-**React Initial**
+React Initial
 =============
 
 [![npm version](https://badge.fury.io/js/react-initial.svg)](http://badge.fury.io/js/react-initial)
@@ -8,6 +8,8 @@
 [![npm](https://img.shields.io/npm/dt/react-initial.svg)]()
 
 Simple react component to make Gmail like text avatars for profile pictures.
+
+![example](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Silver_medal_icon_%28S_initial%29.svg/2000px-Silver_medal_icon_%28S_initial%29.svg.png)
 
 ### Browser compatibility
   - Chrome
@@ -32,20 +34,21 @@ ReactDOM.render(<App />, document.getElementById('root'))
 ```
 
 ### Props
+
 The `Initial` component takes a couple of props that you can use to customize its behaviour:
 
 | Prop       | type   | Description                                                    | Default  |
 |------------|--------|----------------------------------------------------------------|----------|
-| name       | string | Name of the user which the profile picture should be generated | Name     |
-| height     | number | Height of the picture                                          | 100      |
-| width      | number | Width of the picture                                           | 100      |
-| charCount  | number | Number of characherts to be shown in the picture.              | 1        |
-| textColor  | string | Color of the text                                              | #ffffff  |
-| fontSize   | number | Font size of the character(s)                                  | 60       |
-| fontWeight | number | Font weight of the character(s)                                | 400      |
-| radius     | number | Rounded corners                                                | 0        |
-| seed       | number | Number to randomize the background color                       | 0        |
-| color      | string | Background color of the profile picture that should be generated| null    |
+| `name`       | string | Name of the user which the profile picture should be generated | Name     |
+| `height`     | number | Height of the picture                                          | 100      |
+| `width`      | number | Width of the picture                                           | 100      |
+| `charCount`  | number | Number of characherts to be shown in the picture.              | 1        |
+| `textColor`  | string | Color of the text                                              | #ffffff  |
+| `fontSize`   | number | Font size of the character(s)                                  | 60       |
+| `fontWeight` | number | Font weight of the character(s)                                | 400      |
+| `radius`     | number | Rounded corners                                                | 0        |
+| `seed`       | number | Number to randomize the background color                       | 0        |
+| `color`      | string | Background color of the profile picture that should be generated| null    |
 
 
 ### References to create project
