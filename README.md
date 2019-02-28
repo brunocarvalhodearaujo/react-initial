@@ -9,8 +9,6 @@ React Initial
 
 Simple react component to make Gmail like text avatars for profile pictures.
 
-![example](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Silver_medal_icon_%28S_initial%29.svg/2000px-Silver_medal_icon_%28S_initial%29.svg.png)
-
 ### Browser compatibility
   - Chrome
   - Firefox
@@ -24,10 +22,12 @@ Simple react component to make Gmail like text avatars for profile pictures.
 ```js
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Initial } from 'react-initial'
+import Initial from 'react-initial'
 
 const App = () => (
-  <Initial name='Bruno Carvalho de Araujo' />
+  <Initial
+    name='Bruno Carvalho de Araujo'
+  />
 )
 
 ReactDOM.render(<App />, document.getElementById('root'))
@@ -53,4 +53,3 @@ The `Initial` component takes a couple of props that you can use to customize it
 
 ### References to create project
   - [initial.js](https://github.com/judesfernando/initial.js)
-  - [Creating TypeScript typings for existing React components](https://templecoding.com/blog/2016/03/31/creating-typescript-typings-for-existing-react-components/)

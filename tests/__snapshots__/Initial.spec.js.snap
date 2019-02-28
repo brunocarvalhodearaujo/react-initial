@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check rendered component and create snapshot 1`] = `
+<img
+  alt=""
+  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHBvaW50ZXItZXZlbnRzPSJub25lIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgc3R5bGU9IndpZHRoOjEwMHB4O2hlaWdodDoxMDBweDtiYWNrZ3JvdW5kLWNvbG9yOiNiZGMzYzc7Ym9yZGVyLXJhZGl1czowIj48dGV4dCB5PSI1MCUiIHg9IjUwJSIgZHk9IjAuMzVlbSIgcG9pbnRlci1ldmVudHM9ImF1dG8iIGZpbGw9IiNmZmZmZmYiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2FOZXVlLUxpZ2h0LCBIZWx2ZXRpY2EgTmV1ZSBMaWdodCwgSGVsdmV0aWNhIE5ldWUsIEhlbHZldGljYSwgQXJpYWwsIEx1Y2lkYSBHcmFuZGUsIHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIHN0eWxlPSJmb250LXNpemU6NjBweDtmb250LXdlaWdodDo0MDAiPkI8L3RleHQ+PC9zdmc+"
+/>
+`;
