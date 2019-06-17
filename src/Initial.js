@@ -1,5 +1,8 @@
 // @flow
-import React, { Component } from 'react'
+import React, {
+  Component,
+  type CSSProperties
+} from 'react'
 import PropTypes from 'prop-types'
 import { renderToStaticMarkup } from 'react-dom/server'
 
@@ -33,6 +36,8 @@ const colors: string[] = [
 ]
 
 type Props = {
+  className?: string,
+  style?: CSSProperties,
   name?: string,
   color?: ?string,
   seed?: number,
@@ -48,6 +53,8 @@ type Props = {
 
 export default class Initial extends Component<Props> {
   static propTypes = {
+    className: PropTypes.string,
+    style: PropTypes.object,
     name: PropTypes.string,
     color: PropTypes.string,
     seed: PropTypes.number,
@@ -112,7 +119,7 @@ export default class Initial extends Component<Props> {
   }
 
   render () {
-    const { width, height, textColor, fontFamily, fontSize, fontWeight, radius: borderRadius } = this.props
+    const { width, height, textColor, fontFamily, fontSize, fontWeight, radius: borderRadius, ...ownProps } = this.props
     const initial = this.unicodeSlice(this.props.name || 'Name', 0, this.props.charCount || 1).toUpperCase()
     const backgroundColor = this.props.color !== null
       ? this.props.color
@@ -156,7 +163,11 @@ export default class Initial extends Component<Props> {
     )
 
     return (
-      <img src={svgHtml} alt='' />
+      <img
+        {...ownProps}
+        src={svgHtml}
+        alt=''
+      />
     )
   }
 }
