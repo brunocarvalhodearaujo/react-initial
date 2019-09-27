@@ -33,6 +33,7 @@ const colors: string[] = [
 ]
 
 type Props = {
+  charCount?: number,
   name?: string,
   color?: ?string,
   seed?: number,
@@ -112,11 +113,23 @@ export default class Initial extends Component<Props> {
   }
 
   render () {
-    const { width, height, textColor, fontFamily, fontSize, fontWeight, radius: borderRadius } = this.props
-    const initial = this.unicodeSlice(this.props.name || 'Name', 0, this.props.charCount || 1).toUpperCase()
-    const backgroundColor = this.props.color !== null
-      ? this.props.color
-      : colors[ Math.floor((initial.charCodeAt(0) + this.props.seed) % colors.length) ]
+    const {
+      charCount,
+      name,
+      color,
+      seed,
+      width,
+      height,
+      textColor,
+      fontFamily,
+      fontSize,
+      fontWeight,
+      radius: borderRadius
+    } = this.props
+    const initial = this.unicodeSlice(name || 'Name', 0, charCount || 1).toUpperCase()
+    const backgroundColor = color !== null
+      ? color
+      : colors[ Math.floor((initial.charCodeAt(0) + seed) % colors.length) ]
 
     const InitialSvg = () => (
       <svg
