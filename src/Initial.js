@@ -33,7 +33,9 @@ const colors: string[] = [
 ]
 
 export type Props = {
-  charCount?: number,
+  charCount?: Number,
+  className?: string,
+  style?: CSSProperties,
   name?: string,
   color?: ?string,
   seed?: number,
@@ -51,6 +53,8 @@ export type Props = {
 
 export default class Initial extends Component<Props> {
   static propTypes = {
+    className: PropTypes.string,
+    style: PropTypes.object,
     name: PropTypes.string,
     color: PropTypes.string,
     seed: PropTypes.number,

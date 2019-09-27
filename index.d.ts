@@ -7,6 +7,8 @@
 import * as React from 'react'
 
 interface Props {
+  className?: string,
+  style?: React.CSSProperties,
   name?: string,
   color?: string,
   seed?: number,
