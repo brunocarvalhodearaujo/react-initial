@@ -106,17 +106,24 @@ export default class Initial extends Component<Props> {
     let nextSpace = -1
     let length = string.length
 
+    // Remove any leading/trailing spaces
+    string = string.trim()
+
     while (stringIndex < length) {
-      // Find the next space offset from the previous finding
-      nextSpace = words ? string.indexOf(' ', nextSpace) : -1
-      character = this.unicodeCharAt(string, nextSpace >= 0 ? nextSpace + 1 : stringIndex)
+      character = this.unicodeCharAt(string, stringIndex)
 
       if (unicodeIndex >= start && unicodeIndex < end) {
         accumulator += character
+      } else {
+        break;
       }
 
       stringIndex += character.length
       unicodeIndex += 1
+
+      // Find the next space offset from the previous finding
+      nextSpace = words ? string.indexOf(' ', nextSpace + 1) : -1
+      stringIndex = nextSpace > 0 ? nextSpace + 1 : stringIndex
     }
 
     return accumulator
