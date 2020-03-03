@@ -48,7 +48,8 @@ type Props = {
   fontSize?: number,
   fontWeight?: number,
   fontFamily?: string,
-  radius?: number
+  radius?: number,
+  useWords?: boolean
 }
 
 export default class Initial extends Component<Props> {
@@ -97,22 +98,32 @@ export default class Initial extends Component<Props> {
     return string[ index ]
   }
 
-  unicodeSlice (string: string, start: number, end: number): string {
+  unicodeSlice (string: string, start: number, end: number, words: boolean): string {
     let accumulator = ''
     let character
     let stringIndex = 0
     let unicodeIndex = 0
+    let nextSpace = -1
     let length = string.length
+
+    // Remove any leading/trailing spaces
+    string = string.trim()
 
     while (stringIndex < length) {
       character = this.unicodeCharAt(string, stringIndex)
 
       if (unicodeIndex >= start && unicodeIndex < end) {
         accumulator += character
+      } else {
+        break;
       }
 
       stringIndex += character.length
       unicodeIndex += 1
+
+      // Find the next space offset from the previous finding
+      nextSpace = words ? string.indexOf(' ', nextSpace + 1) : -1
+      stringIndex = nextSpace > 0 ? nextSpace + 1 : stringIndex
     }
 
     return accumulator
@@ -120,7 +131,7 @@ export default class Initial extends Component<Props> {
 
   render () {
     const { width, height, textColor, fontFamily, fontSize, fontWeight, radius: borderRadius, ...ownProps } = this.props
-    const initial = this.unicodeSlice(this.props.name || 'Name', 0, this.props.charCount || 1).toUpperCase()
+    const initial = this.unicodeSlice(this.props.name || 'Name', 0, this.props.charCount || 1, this.props.useWords || false).toUpperCase()
     const backgroundColor = this.props.color !== null
       ? this.props.color
       : colors[ Math.floor((initial.charCodeAt(0) + this.props.seed) % colors.length) ]
