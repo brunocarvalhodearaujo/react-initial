@@ -13,7 +13,8 @@ interface Props {
   fontSize?: number,
   fontWeight?: number,
   fontFamily?: string,
-  radius?: number
+  radius?: number,
+  useWords?: boolean
 }
 
 export declare class Initial extends React.Component<Props> {}

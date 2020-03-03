@@ -1,3 +1,12 @@
+/**
+ * Copyright (c) 2020-present, Bruno Carvalho de Araujo.
+ * All rights reserved.
+ *
+ * This source code is licensed under the license found in the LICENSE file in
+ * the root directory of this source tree.
+ */
+
+
 import React from 'react'
 import renderer from 'react-test-renderer'
 import Initial from '../src/Initial'
@@ -14,7 +23,6 @@ test('check rendered component and create snapshot', () => {
   expect(tree.props.alt).toEqual('')
   expect(tree.props.children).toEqual(undefined)
   expect(typeof tree.props.src).toBe('string')
-  console.log(tree.props.src);
 
   expect(tree).toMatchSnapshot()
 })

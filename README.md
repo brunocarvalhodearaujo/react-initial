@@ -9,15 +9,11 @@ React Initial
 
 Simple react component to make Gmail like text avatars for profile pictures.
 
-![example](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Silver_medal_icon_%28S_initial%29.svg/2000px-Silver_medal_icon_%28S_initial%29.svg.png)
-
-### Browser compatibility
-  - Chrome
-  - Firefox
-  - Opera 9+
-  - Safari 3.2+
-  - iOS Safari 3.2+
-  - Android Browser 3+
+<div align="center">
+  <br />
+  <img width="100px" heigth="100px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Silver_medal_icon_%28S_initial%29.svg/2000px-Silver_medal_icon_%28S_initial%29.svg.png" />
+  <br />
+</div>
 
 ### Usage
 
@@ -37,20 +33,30 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 The `Initial` component takes a couple of props that you can use to customize its behaviour:
 
-| Prop       | type   | Description                                                    | Default  |
-|------------|--------|----------------------------------------------------------------|----------|
-| `name`       | string | Name of the user which the profile picture should be generated | Name     |
-| `height`     | number | Height of the picture                                          | 100      |
-| `width`      | number | Width of the picture                                           | 100      |
-| `charCount`  | number | Number of characherts to be shown in the picture.              | 1        |
-| `textColor`  | string | Color of the text                                              | #ffffff  |
-| `fontSize`   | number | Font size of the character(s)                                  | 60       |
-| `fontWeight` | number | Font weight of the character(s)                                | 400      |
-| `radius`     | number | Rounded corners                                                | 0        |
-| `seed`       | number | Number to randomize the background color                       | 0        |
-| `color`      | string | Background color of the profile picture that should be generated| null    |
+| Prop         | type   | Description                                                     | Default  |
+|--------------|--------|-----------------------------------------------------------------|----------|
+| `name`       | string | Name of the user which the profile picture should be generated  | Name     |
+| `height`     | number | Height of the picture                                           | 100      |
+| `width`      | number | Width of the picture                                            | 100      |
+| `charCount`  | number | Number of characherts to be shown in the picture.               | 1        |
+| `textColor`  | string | Color of the text                                               | #ffffff  |
+| `fontSize`   | number | Font size of the character(s)                                   | 60       |
+| `fontWeight` | number | Font weight of the character(s)                                 | 400      |
+| `radius`     | number | Rounded corners                                                 | 0        |
+| `seed`       | number | Number to randomize the background color                        | 0        |
+| `color`      | string | Background color of the profile picture that should be generated| null     |
+| `useWords`   | boolean | number of characters while splitting the words over spaces     | null     |
 
+### Compatibility
+
+- Chrome
+- Firefox
+- Opera 9+
+- Safari 3.2+
+- iOS Safari 3.2+
+- Android Browser 3+
 
 ### References to create project
-  - [initial.js](https://github.com/judesfernando/initial.js)
-  - [Creating TypeScript typings for existing React components](https://templecoding.com/blog/2016/03/31/creating-typescript-typings-for-existing-react-components/)
+
+- [initial.js](https://github.com/judesfernando/initial.js)
+- [Creating TypeScript typings for existing React components](https://templecoding.com/blog/2016/03/31/creating-typescript-typings-for-existing-react-components/)

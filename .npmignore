@@ -1,7 +1,9 @@
 # folders
-src
+src/
+test/
 
 # files
 .gitignore
 .editorconfig
 .babelrc
+.flowconfig

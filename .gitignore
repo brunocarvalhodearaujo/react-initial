@@ -7,7 +7,7 @@ nbproject
 node_modules
 lib
 coverage
-__test__/__snapshots__
+test/__snapshots__
 
 # files
 *.DS_Store
