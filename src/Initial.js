@@ -135,8 +135,8 @@ export default class Initial extends Component<Props> {
   }
 
   render () {
-    const { width, height, textColor, fontFamily, fontSize, fontWeight, radius: borderRadius, ...ownProps } = this.props
-    const initial = this.unicodeSlice(this.props.name || 'Name', 0, this.props.charCount || 1, this.props.useWords || false).toUpperCase()
+    const { width, height, textColor, fontFamily, fontSize, fontWeight, charCount, useWords, radius: borderRadius, ...ownProps } = this.props
+    const initial = this.unicodeSlice(this.props.name || 'Name', 0, charCount || 1, useWords || false).toUpperCase()
     const backgroundColor = this.props.color !== null
       ? this.props.color
       : colors[ Math.floor((initial.charCodeAt(0) + this.props.seed) % colors.length) ]
