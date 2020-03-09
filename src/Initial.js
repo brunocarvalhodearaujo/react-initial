@@ -135,7 +135,21 @@ export default class Initial extends Component<Props> {
   }
 
   render () {
-    const { width, height, textColor, fontFamily, fontSize, fontWeight, charCount, useWords, name, color, seed, radius: borderRadius, ...ownProps } = this.props
+    const {
+      width,
+      height,
+      textColor,
+      fontFamily,
+      fontSize,
+      fontWeight,
+      charCount,
+      useWords,
+      name,
+      color,
+      seed,
+      radius: borderRadius,
+      ...ownProps
+    } = this.props
     const initial = this.unicodeSlice(name || 'Name', 0, charCount || 1, useWords || false).toUpperCase()
     const backgroundColor = color !== null
       ? color
@@ -179,11 +193,7 @@ export default class Initial extends Component<Props> {
     )
 
     return (
-      <img
-        {...ownProps}
-        src={svgHtml}
-        alt=''
-      />
+      <img {...ownProps} src={svgHtml} alt='' />
     )
   }
 }
