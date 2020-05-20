@@ -25,18 +25,18 @@
     "prepublish": "babel src --out-dir lib"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.8.7",
-    "@babel/preset-flow": "^7.8.3",
-    "@babel/preset-react": "^7.8.3",
-    "@types/jest": "^25.1.4",
-    "babel-loader": "^8.1.0",
-    "jest": "^25.1.0",
-    "react-styleguidist": "^11.0.6",
-    "react-test-renderer": "^16.13.0",
-    "webpack": "^4.43.0"
+    "@babel/cli": "7.8.4",
+    "@babel/core": "7.8.7",
+    "@babel/plugin-proposal-class-properties": "7.8.3",
+    "@babel/preset-env": "7.8.7",
+    "@babel/preset-flow": "7.8.3",
+    "@babel/preset-react": "7.8.3",
+    "@types/jest": "25.1.4",
+    "babel-loader": "8.1.0",
+    "jest": "25.1.0",
+    "react-styleguidist": "11.0.6",
+    "react-test-renderer": "16.13.0",
+    "webpack": "4.43.0"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
