@@ -40,20 +40,62 @@ const colors: string[] = [
   '#a94136'
 ]
 
-type Props = {
+export type Props = {
+  /**
+   * @ignore
+   */
   className?: string,
+  /**
+   * @ignore
+   */
   style?: CSSProperties,
+  /**
+   * Name of the user which the profile picture should be generated
+   */
   name?: string,
+  /**
+   * Background color of the profile picture that should be generated
+   */
   color?: ?string,
+  /**
+   * Number to randomize the background color
+   */
   seed?: number,
+  /**
+   * Number of characherts to be shown in the picture.
+   */
   charCount?: number,
+  /**
+   * Color of the text
+   */
   textColor?: string,
+  /**
+   * Height of the picture
+   */
   height?: number,
+  /**
+   * Width of the picture
+   */
   width?: number,
+  /**
+   * Font size of the character(s)
+   */
   fontSize?: number,
+  /**
+   *  Font weight of the character(s)
+   */
   fontWeight?: number,
+  /**
+   * @ignore
+   */
   fontFamily?: string,
+  /**
+   * Rounded corners
+   */
   radius?: number,
+  /**
+   * Number of characters while splitting the words over spaces
+   */
   useWords?: boolean
 }
 
@@ -100,7 +142,7 @@ export default class Initial extends Component<Props> {
       }
     }
 
-    return string[ index ]
+    return string[index]
   }
 
   unicodeSlice (string: string, start: number, end: number, words: boolean): string {
@@ -109,7 +151,7 @@ export default class Initial extends Component<Props> {
     let stringIndex = 0
     let unicodeIndex = 0
     let nextSpace = -1
-    let length = string.length
+    const length = string.length
 
     // Remove any leading/trailing spaces
     string = string.trim()
@@ -120,7 +162,7 @@ export default class Initial extends Component<Props> {
       if (unicodeIndex >= start && unicodeIndex < end) {
         accumulator += character
       } else {
-        break;
+        break
       }
 
       stringIndex += character.length
@@ -153,7 +195,7 @@ export default class Initial extends Component<Props> {
     const initial = this.unicodeSlice(name || 'Name', 0, charCount || 1, useWords || false).toUpperCase()
     const backgroundColor = color !== null
       ? color
-      : colors[ Math.floor((initial.charCodeAt(0) + seed) % colors.length) ]
+      : colors[Math.floor((initial.charCodeAt(0) + seed) % colors.length)]
 
     const InitialSvg = () => (
       <svg
@@ -168,7 +210,8 @@ export default class Initial extends Component<Props> {
             backgroundColor,
             borderRadius
           }
-        }}>
+        }}
+      >
         <text
           y='50%'
           x='50%'
@@ -178,7 +221,8 @@ export default class Initial extends Component<Props> {
           fontFamily={fontFamily}
           textAnchor='middle'
           style={{ fontSize, fontWeight }}
-          children={initial} />
+          children={initial}
+        />
       </svg>
     )
 

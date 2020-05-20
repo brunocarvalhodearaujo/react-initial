@@ -8,6 +8,7 @@ node_modules
 lib
 coverage
 test/__snapshots__
+styleguide
 
 # files
 *.DS_Store
