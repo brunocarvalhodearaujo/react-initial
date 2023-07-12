@@ -10,8 +10,6 @@
 
 [![npm version](https://badge.fury.io/js/react-initial.svg)](http://badge.fury.io/js/react-initial)
 [![License](https://img.shields.io/npm/l/react-initial.svg)](https://www.npmjs.com/package/react-initial) 
-[![Dependency Status](https://david-dm.org/brunocarvalhodearaujo/react-initial.svg?style=flat-square)](https://david-dm.org/brunocarvalhodearaujo/react-initial)
-[![devDependency Status](https://david-dm.org/brunocarvalhodearaujo/react-initial/dev-status.svg?style=flat-square)](https://david-dm.org/brunocarvalhodearaujo/react-initial#info=devDependencies)
 [![npm](https://img.shields.io/npm/dt/react-initial.svg)]()
 
 ## Usage
