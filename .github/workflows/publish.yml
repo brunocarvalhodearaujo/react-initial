@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run tests
-        run: npm test -- --coverage
+        run: npm test -- --coverage -u
   build:
     name: 📦 Publish Package in NPM
     runs-on: ubuntu-latest
