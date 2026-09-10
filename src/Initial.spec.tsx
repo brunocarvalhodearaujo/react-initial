@@ -47,6 +47,12 @@ describe('Initial', () => {
     expect(svg).not.toContain('Lovelace')
   })
 
+  test('falls back to 1 character when charCount is falsy', () => {
+    const svg = decodeSvg(render({ name: 'Ada Lovelace', charCount: 0 }).toJSON().props.src)
+    expect(svg).toContain('>A<')
+    expect(svg).not.toContain('>AD<')
+  })
+
   test('splits across words when useWords is set', () => {
     const svg = decodeSvg(render({ name: 'John Doe', charCount: 2, useWords: true }).toJSON().props.src)
     expect(svg).toContain('>JD<')
