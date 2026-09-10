@@ -6,4 +6,4 @@
  * the root directory of this source tree.
  */
 
-export { default, default as Initial, type Props as InitialProps } from './Initial'
+export { default, Initial, type Props as InitialProps } from './Initial'

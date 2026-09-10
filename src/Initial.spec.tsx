@@ -30,6 +30,11 @@ describe('Initial', () => {
     expect(svg).not.toContain('>m<')
   })
 
+  test('falls back to "Name" for an empty name', () => {
+    const svg = decodeSvg(render({ name: '' }).toJSON().props.src)
+    expect(svg).toContain('>N<')
+  })
+
   test('extracts the first letter and uppercases it', () => {
     const svg = decodeSvg(render({ name: 'Ada Lovelace' }).toJSON().props.src)
     expect(svg).toContain('>A<')

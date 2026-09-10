@@ -6,8 +6,7 @@
  * the root directory of this source tree.
  */
 
-// @flow
-import { FC, type CSSProperties } from 'react'
+import { FC, useCallback, useMemo, type CSSProperties } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 
 const colors: string[] = [
@@ -144,7 +143,7 @@ const unicodeSlice = (string: string, start: number, end: number, words: boolean
   return accumulator
 }
 
-const Initial: FC<Props> = ({
+export const Initial: FC<Props> = ({
   name = 'Name',
   color = null,
   seed = 0,
@@ -159,9 +158,19 @@ const Initial: FC<Props> = ({
   useWords = false,
   ...ownProps
 }) => {
-  const initial = unicodeSlice(name || 'Name', 0, charCount || 1, useWords || false).toUpperCase()
-  const backgroundColor = color !== null ? color : colors[Math.floor((initial.charCodeAt(0) + seed) % colors.length)]
-  const InitialSvg = () => (
+  const initial: string = useMemo(() => {
+    return unicodeSlice(name || 'Name', 0, charCount || 1, useWords || false).toUpperCase()
+  }, [name, charCount, useWords])
+
+  const backgroundColor: string = useMemo(() => {
+    if (color !== null) {
+      return color
+    }
+
+    return colors[Math.floor((initial.charCodeAt(0) + seed) % colors.length)]
+  }, [color, initial, seed])
+
+  const InitialSvg = useCallback(() => (
     <svg xmlns='http://www.w3.org/2000/svg' pointerEvents='none' {...{ width, height, style: { width, height, backgroundColor, borderRadius: radius } }}>
       <text
         y='50%'
@@ -175,20 +184,22 @@ const Initial: FC<Props> = ({
         children={initial}
       />
     </svg>
-  )
+  ), [initial, backgroundColor, textColor, fontFamily, fontSize, fontWeight, width, height, radius])
 
-  const svgHtml: string = 'data:image/svg+xml;base64,' + btoa(
-    unescape(
-      encodeURIComponent(
-        renderToStaticMarkup(
-          <InitialSvg />
+  const svgHtml: string = useMemo(() => {
+    return 'data:image/svg+xml;base64,' + btoa(
+      unescape(
+        encodeURIComponent(
+          renderToStaticMarkup(
+            <InitialSvg />
+          )
         )
       )
     )
-  )
+  }, [InitialSvg])
 
   return (
-    <img {...ownProps} src={svgHtml} alt='' />
+    <img alt='' {...ownProps} src={svgHtml} />
   )
 
 }
