@@ -1,62 +1,63 @@
-<p align="center">
-  <img
-    width="100px"
-    heigth="100px"
-    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Silver_medal_icon_%28S_initial%29.svg/2000px-Silver_medal_icon_%28S_initial%29.svg.png"
-    alt="react-initial">
-</p>
 <h1 align="center">React Initial</h1>
-<p align="center">Simple react component to make Gmail like text avatars for profile pictures.</p>
+<p align="center">A simple React component to generate Gmail-like text avatars for profile pictures.</p>
 
-[![npm version](https://badge.fury.io/js/react-initial.svg)](http://badge.fury.io/js/react-initial)
-[![License](https://img.shields.io/npm/l/react-initial.svg)](https://www.npmjs.com/package/react-initial) 
-[![npm](https://img.shields.io/npm/dt/react-initial.svg)]()
+[![npm version](https://img.shields.io/npm/v/react-initial.svg)](https://www.npmjs.com/package/react-initial)
+[![npm downloads](https://img.shields.io/npm/dt/react-initial.svg)](https://www.npmjs.com/package/react-initial)
+[![License](https://img.shields.io/npm/l/react-initial.svg)](LICENSE)
+![Lines Coverage](./badge-lines.svg)
 
 ## Usage
 
-```js
-import React, { Component } from 'react'
-import { Initial } from 'react-initial'
+```jsx
+import React from 'react'
+import Initial from 'react-initial'
 
-export default class MyComponent extends Component {
-  render () {
-    return (
-      <Initial
-        name='Bruno Carvalho de Araujo'
-      />
-    )
-  }
+export default function MyComponent() {
+  return (
+    <Initial
+      name='Bruno Carvalho de Araujo'
+    />
+  )
 }
 ```
 
+The component renders an `<img>` whose `src` is a base64-encoded SVG data URI, so it requires no external assets or network requests.
+
 ## Props
 
-The `Initial` component takes a couple of props that you can use to customize its behaviour:
+The `Initial` component accepts a set of props to customize its behaviour:
 
-| **Name**     |**Type**| **Description**                                                 |**Default**|
-|--------------|--------|-----------------------------------------------------------------|-----------|
-| `name`       | string | Name of the user which the profile picture should be generated  | Name      |
-| `height`     | number | Height of the picture                                           | 100       |
-| `width`      | number | Width of the picture                                            | 100       |
-| `charCount`  | number | Number of characherts to be shown in the picture.               | 1         |
-| `textColor`  | string | Color of the text                                               | #ffffff   |
-| `fontSize`   | number | Font size of the character(s)                                   | 60        |
-| `fontWeight` | number | Font weight of the character(s)                                 | 400       |
-| `radius`     | number | Rounded corners                                                 | 0         |
-| `seed`       | number | Number to randomize the background color                        | 0         |
-| `color`      | string | Background color of the profile picture that should be generated| null      |
-| `useWords`   | boolean | number of characters while splitting the words over spaces     | null      |
+| **Name**     | **Type** | **Description**                                                       | **Default**        |
+|--------------|----------|-----------------------------------------------------------------------|--------------------|
+| `className`  | string   | Class name applied to the `<img>`                                     | (none)             |
+| `style`      | object   | Inline style applied to the `<img>`                                   | (none)             |
+| `name`       | string   | Name of the user whose initial(s) should be generated                 | `'Name'`           |
+| `color`      | string   | Background color of the profile picture                               | auto (from palette)|
+| `seed`       | number   | Number used to randomize the background color                         | `0`                |
+| `charCount`  | number   | Number of characters to show in the picture                          | `1`                |
+| `textColor`  | string   | Color of the text                                                     | `#ffffff`          |
+| `height`     | number   | Height of the picture                                                 | `100`              |
+| `width`      | number   | Width of the picture                                                  | `100`              |
+| `fontSize`   | number   | Font size of the character(s)                                         | `60`               |
+| `fontWeight` | number   | Font weight of the character(s)                                       | `400`              |
+| `fontFamily` | string   | Font family of the character(s)                                       | Helvetica Neue     |
+| `radius`     | number   | Border radius (rounded corners)                                       | `0`                |
+| `useWords`   | boolean  | Split the characters across words instead of taking them in order     | `false`            |
 
-## Compatibility
+## Installation
 
-- Chrome
-- Firefox
-- Opera 9+
-- Safari 3.2+
-- iOS Safari 3.2+
-- Android Browser 3+
+```sh
+npm install react-initial
+```
 
-## References to create project
+## Development
 
-- [initial.js](https://github.com/judesfernando/initial.js)
-- [Creating TypeScript typings for existing React components](https://templecoding.com/blog/2016/03/31/creating-typescript-typings-for-existing-react-components/)
+```sh
+npm install        # install dependencies
+npm test           # run the test suite
+npm run build      # compile TypeScript to dist/
+```
+
+## License
+
+[MIT](LICENSE) — Copyright (c) 2020-present, Bruno Carvalho de Araujo.

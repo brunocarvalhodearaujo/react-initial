@@ -7,7 +7,7 @@ nbproject
 node_modules
 lib
 coverage
-test/__snapshots__
+src/__snapshots__
 styleguide
 
 # files
@@ -15,3 +15,5 @@ styleguide
 *._*
 *.env
 *.log
+
+junit.xml

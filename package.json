@@ -17,47 +17,53 @@
   "bugs": {
     "url": "https://github.com/brunocarvalhodearaujo/react-initial/issues"
   },
-  "typings": "index.d.ts",
-  "main": "lib/index.js",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build",
     "test": "jest --no-cache --coverage",
-    "prepublish": "babel src --out-dir lib"
+    "build": "tsc",
+    "posttest": "jest-coverage-badges && cp ./coverage/badge-lines.svg ./badge-lines.svg",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
-    "@babel/cli": "7.8.4",
-    "@babel/core": "7.8.7",
-    "@babel/plugin-proposal-class-properties": "7.8.3",
-    "@babel/preset-env": "7.8.7",
-    "@babel/preset-flow": "7.8.3",
-    "@babel/preset-react": "7.8.3",
     "@types/jest": "25.1.4",
-    "babel-loader": "8.1.0",
-    "jest": "25.1.0",
-    "react-styleguidist": "11.0.6",
-    "react-test-renderer": "16.13.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/react-test-renderer": "^19.3.0",
+    "jest": "^29.7.0",
+    "jest-coverage-badges": "^1.1.2",
+    "jest-environment-jsdom": "^30.5.1",
+    "jest-junit": "^17.0.0",
+    "react-test-renderer": "^16.13.0",
+    "ts-jest": "^29.4.12",
+    "typescript": "^4.8.4",
     "webpack": "4.43.0"
   },
-  "dependencies": {
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+  "peerDependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   },
   "jest": {
     "verbose": true,
-    "testEnvironment": "jsdom",
+    "preset": "ts-jest",
+    "testEnvironment": "jest-environment-jsdom",
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
     "coverageReporters": [
       "text-summary",
-      "lcov"
+      "lcov",
+      "cobertura",
+      "json-summary"
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "src/**/*.js",
-      "!src/**/index.js",
-      "!src/**/*.{test,spec}.js"
+      "src/**/*.{js,ts,jsx,tsx}",
+      "!src/**/index.{js,ts,jsx,tsx}",
+      "!src/**/*.{test,spec}.{js,ts,jsx,tsx}"
     ],
-    "testRegex": "test/.*\\.spec\\.js$",
+    "testRegex": "(test|src|__test__)/.*\\.(spec|test)\\.(js|ts|jsx|tsx)$",
     "coverageThreshold": {
       "global": {
         "statements": 75,
