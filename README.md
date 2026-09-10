@@ -10,15 +10,17 @@
 
 ```jsx
 import React from 'react'
-import Initial from 'react-initial'
+import { Initial } from 'react-initial'
 
-export default function MyComponent() {
+function MyComponent() {
   return (
     <Initial
       name='Bruno Carvalho de Araujo'
     />
   )
 }
+
+export default MyComponent
 ```
 
 The component renders an `<img>` whose `src` is a base64-encoded SVG data URI, so it requires no external assets or network requests.

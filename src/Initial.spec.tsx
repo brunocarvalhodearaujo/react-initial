@@ -6,7 +6,7 @@
  * the root directory of this source tree.
  */
 
-import { expect, test } from '@jest/globals'
+import { expect, test, describe } from '@jest/globals'
 import renderer from 'react-test-renderer'
 import Initial, { type Props } from './Initial'
 

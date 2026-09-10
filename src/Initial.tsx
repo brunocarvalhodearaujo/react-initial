@@ -8,6 +8,7 @@
 
 import { FC, useCallback, useMemo, type CSSProperties } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
+import { unicodeSlice } from './utils'
 
 const colors: string[] = [
   '#1abc9c',
@@ -95,52 +96,6 @@ export type Props = {
    * Number of characters while splitting the words over spaces
    */
   useWords?: boolean
-}
-
-const unicodeCharAt = (string: string, index: number): string => {
-  const first = string.charCodeAt(index)
-  let second
-
-  if (first >= 0xD800 && first <= 0xDBFF && string.length > index + 1) {
-    second = string.charCodeAt(index + 1)
-
-    if (second >= 0xDC00 && second <= 0xDFFF) {
-      return string.substring(index, index + 2)
-    }
-  }
-
-  return string[index]
-}
-
-const unicodeSlice = (string: string, start: number, end: number, words: boolean): string => {
-  let accumulator = ''
-  let character
-  let stringIndex = 0
-  let unicodeIndex = 0
-  let nextSpace = -1
-  const length = string.length
-
-  // Remove any leading/trailing spaces
-  string = string.trim()
-
-  while (stringIndex < length) {
-    character = unicodeCharAt(string, stringIndex)
-
-    if (unicodeIndex >= start && unicodeIndex < end) {
-      accumulator += character
-    } else {
-      break
-    }
-
-    stringIndex += character.length
-    unicodeIndex += 1
-
-    // Find the next space offset from the previous finding
-    nextSpace = words ? string.indexOf(' ', nextSpace + 1) : -1
-    stringIndex = nextSpace > 0 ? nextSpace + 1 : stringIndex
-  }
-
-  return accumulator
 }
 
 export const Initial: FC<Props> = ({
