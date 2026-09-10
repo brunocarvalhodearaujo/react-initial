@@ -38,7 +38,7 @@
     "react-test-renderer": "^16.13.0",
     "ts-jest": "^29.4.7",
     "typescript": "^5.9.3",
-    "webpack": "4.43.0"
+    "webpack": "5.110.3"
   },
   "peerDependencies": {
     "react": "^16.14.0",
