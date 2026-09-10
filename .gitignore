@@ -9,6 +9,7 @@ lib
 coverage
 src/__snapshots__
 styleguide
+dist
 
 # files
 *.DS_Store

@@ -1,42 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "downlevelIteration": true,
-    "isolatedModules": true,
-    "noEmit": true,
+    "target": "ES6",
+    "module": "node16",
+    "moduleResolution": "node16",
+    "rootDir": "src",
+    "outDir": "dist",
+    "sourceMap": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src",
-    "outDir": "./dist",
-    "paths": {
-      "@/*": [
-        "*"
-      ]
-    }
+    "declaration": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "lib": [
+      "es2015",
+      "esnext"
+    ]
   },
-  "include": [
-    "src"
-  ],
   "exclude": [
+    "src/**/*.spec.ts",
+    "src/**/*.spec.tsx",
     "node_modules",
     "dist",
-    "test",
-    "codegen.ts",
-    "src/**/*.spec.tsx",
-    "src/**/*.spec.tsx",
+    "test"
   ]
 }
